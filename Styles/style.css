@@ -6,13 +6,167 @@
 
 body {
     background: #ddd;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .logo {
     width: 200px;
+    height: 50px;
 }
 
 nav>div>button {
     background: #000;
     color: #000;
+}
+
+.navbar {
+    border-bottom: 2px solid #da106fff;
+    --bs-navbar-toggler-border-radius: 0rem;
+    --bs-navbar-active-color: #282442ff;
+    --bs-navbar-color: #6c6188;
+}
+
+.bi-caret-left-fill,
+.bi-caret-right-fill {
+    color: #da106fff;
+    font-size: 2.5rem;
+}
+
+.back,
+.next {
+    transition: all 0.5s ease;
+}
+
+.back:hover,
+.next:hover {
+    transform: scale(1.5);
+}
+
+header a {
+    color: #da106fff;
+}
+
+.bi-list {
+    color: #da106fff;
+    font-size: 2rem;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus,
+.navbar-toggler-icon:focus {
+    border-radius: 0rem !important;
+    box-shadow: 0px 0px 0px 2px #da106fff;
+}
+
+.nav-link {
+    transition: all 0.5s ease;
+}
+
+.nav-link:hover {
+    color: #da106fff !important;
+}
+
+.active {
+    font-weight: bold;
+}
+
+main {
+    width: 100%;
+    min-height: calc(100vh - 51px - 156px - 96px - 73px);
+}
+
+.row {
+    width: 100%;
+}
+
+footer {
+    background-color: #eb9627;
+    color: #282442ff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+footer a {
+    color: #282442ff;
+}
+
+.form-check-label {
+    white-space: nowrap;
+}
+
+.form-check-input:checked {
+    background-color: #da106fff;
+    border-color: #da106fff;
+}
+
+.search {
+    border-radius: 0rem;
+}
+
+.form-control {
+    border: 1px 1px 1px black;
+}
+
+.card-event {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-event img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: #ff3e03b4;
+}
+
+.btn-custom {
+    background-color: #282442ff;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-custom:hover {
+    background-color: #ed5666;
+    color: white;
+}
+
+.table-container {
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+table {
+    margin: 40px 0px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    width: 100% !important;
+}
+
+th {
+    padding: 10px;
+    margin: auto;
+    text-align: start;
+}
+
+td {
+    padding: 10px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.form-contact {
+    min-height: 64vh;
+    max-width: 30vw;
+}
+
+.stats {
+    min-height: 64vh;
 }

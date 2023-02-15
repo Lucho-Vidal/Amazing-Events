@@ -5,24 +5,104 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script defer async src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <title>Details</title>
 </head>
 
 <body>
-    <header>
-        <nav><img src="./Resources Amazing Events/Logo Amazing Events.png" alt="Logo"></nav>
-        <<a href="./index.html">Home</a>
-            <a href="./upcomingEvents.html">Upcoming Events</a>
-            <a href="./pastEvents.html">Past Events</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./stats.html">Stats</a>
-            <h1>Home</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-2">
+        <div class="container-fluid">
+            <a class="navbar-brand p-0 d-flex" href="./index.html"><img class="logo" src="../assets/images/Logo_Amazing_Events.png" alt=""></a>
+            <button class="navbar-toggler p-0 border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link ps-2" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2" href="./upcoming.html">Upcoming Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2" href="./past.html">Past Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-2" href="./stats.html">Stats</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="container py-5">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+            <!-- <a class="back" href="./contact.html">
+                <i class="bi bi-caret-left-fill"></i>
+            </a> -->
+            <h2 class="m-0 text-center">DETAILS</h2>
+            <!-- <a class="next" href="./index.html">
+                <i class="bi bi-caret-right-fill"></i>
+            </a> -->
+        </div>
     </header>
+    <div class="divider"></div>
     <main>
+        <div class="container p-0 my-4">
+            <div class="row m-0 p-4 justify-content-center">
 
+                <div class="col-12 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-0 d-flex align-self-stretch justify-content-center">
+                    <div class="card-event d-flex flex-row w-100">
+                        <div class="col-8">
+                            <img src="../assets/images/Music_Concert.jpg" class="card-img-top h-100" alt="...">
+                        </div>
+                        <div class="col-4 card-body p-4 d-flex flex-column justify-content-between">
+                            <div class="text-container">
+                                <h5 class="card-title">Title</h5>
+                                <p class="card-text">Descriptive text.</p>
+                                <p class="card-text">Descriptive text.</p>
+                                <p class="card-text">Descriptive text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
-    <footer></footer>
-
+    <div class="divider"></div>
+    <footer class="container-fluid py-4">
+        <div class="container d-flex justify-content-between">
+            <div class="social-media d-flex gap-3">
+                <a href="#" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" rel="noopener noreferrer">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" rel="noopener noreferrer">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+            </div>
+            <div>
+                <span>Cohort FE03-TT</span>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
