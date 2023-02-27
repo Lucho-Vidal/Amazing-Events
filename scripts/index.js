@@ -17,7 +17,7 @@ function crearTarjeta(event) {
                 <div class="card-bottom d-flex flex-column justify-content-between">
                     <p class="card-text">${event.description}</p>
                     <p>Category: ${event.category}</p>
-                    <p>Price: ${event.price}</P>
+                    <p>Price: $ ${event.price}</P>
                     <a href="#" class="btn btn-primary">See more</a>
                 </div>
                 
