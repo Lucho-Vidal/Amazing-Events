@@ -114,8 +114,11 @@ footer a {
 
 .card-event img {
     width: 100%;
-    height: 170px;
+    height: 180px;
     object-fit: cover;
+}
+.card-text{
+    height: 72px;
 }
 
 .card-body {

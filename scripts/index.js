@@ -9,15 +9,18 @@ function generarTarjetas(arrayEvents,currentDate){
 
 function crearTarjeta(event) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card d-flex justify-content-center" style="width: 18rem;">
             <img src="${event.image}" class="card-img-top" alt="Images">
             <div class="card-body">
                 <h5 class="card-title">${event.name}</h5>
                 <P>Date: ${event.date}</p>
-                <p class="card-text">${event.description}</p>
-                <p>Category: ${event.category}</p>
-                <p>Price: ${event.price}</P>
-                <a href="#" class="btn btn-primary">See more</a>
+                <div class="card-bottom d-flex flex-column justify-content-between">
+                    <p class="card-text">${event.description}</p>
+                    <p>Category: ${event.category}</p>
+                    <p>Price: ${event.price}</P>
+                    <a href="#" class="btn btn-primary">See more</a>
+                </div>
+                
             </div>
         </div>`
 }
