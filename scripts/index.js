@@ -1,16 +1,8 @@
-//Tarjetas
-function generarTarjetas(arrayEvents,checkbox){
+
+function generarTarjetas(arrayEvents){
     let tarjetas = "";
     for (const event of arrayEvents) {
-        if(checkbox.length > 0){
-            checkbox.forEach((categoria)=>{
-                if(event.category==categoria){
-                    tarjetas += crearTarjeta(event);
-                }
-            })     
-        }else{
             tarjetas += crearTarjeta(event);
-        }
     }
     return tarjetas
 }
@@ -48,6 +40,22 @@ function crearCheckbox(cat,i){
         <label class="form-check-label" for="categoria${i}">${cat}</label>
     </div>`
 }
+function filtrarCheckbox(events,checkbox){
+    let tarjetas = "";
+    if(checkbox.length > 0){
+        checkbox.forEach((categoria)=>{
+            events.forEach((event)=>{
+                if(event.category==categoria){
+                    tarjetas += crearTarjeta(event);
+                }
+            })
+            
+        })
+    }else{
+        tarjetas = generarTarjetas(events);
+    }
+    return tarjetas;
+}
 
 //quiero sacar los duplicados del array
 function eliminarDuplicados (array){
@@ -65,9 +73,9 @@ let categoriaSelect = []
 //tarjetas
 //Aca se cargan las tarjetas de los eventos
 const contTarjeta = document.querySelector("#containerCard");
-let tarjetasGeneradas = generarTarjetas(data.events,categoriaSelect);
+let tarjetasGeneradas = generarTarjetas(data.events);
 contTarjeta.innerHTML = tarjetasGeneradas;
-
+console.log(data.events);
 //Checkbox
 // Aca se cargan los checkbox de cada categoria
 const categorias = document.getElementById('category')
@@ -86,7 +94,17 @@ checks.forEach((e)=>{
         }else{
             categoriaSelect.splice(categoriaSelect.indexOf(e.value),1);
         }
-        contTarjeta.innerHTML = generarTarjetas(data.events,categoriaSelect);
+        contTarjeta.innerHTML = filtrarCheckbox(data.events,categoriaSelect);
     });
 });
 
+//Buscador
+let buscador = document.getElementById('search');
+buscador.addEventListener('keyup',()=> { 
+    let eventosEncontrados = [];
+    eventosEncontrados = data.events.filter((event)=>{
+        return (event.name.toLowerCase().includes(buscador.value.toLowerCase()))
+    });
+    contTarjeta.innerHTML = generarTarjetas(eventosEncontrados);
+    
+});
