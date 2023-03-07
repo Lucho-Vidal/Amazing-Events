@@ -1,8 +1,16 @@
 //Tarjetas
-function generarTarjetas(arrayEvents){
+function generarTarjetas(arrayEvents,checkbox){
     let tarjetas = "";
     for (const event of arrayEvents) {
-        tarjetas += crearTarjeta(event);
+        if(checkbox.length > 0){
+            checkbox.forEach((categoria)=>{
+                if(event.category==categoria){
+                    tarjetas += crearTarjeta(event);
+                }
+            })     
+        }else{
+            tarjetas += crearTarjeta(event);
+        }
     }
     return tarjetas
 }
@@ -27,17 +35,17 @@ function crearTarjeta(event) {
 //Categorias
 function cargarCategorias(arrayCat){
     let categorias = "";
-    for(const cat of arrayCat){
-        categorias +=  crearCheckbox(cat);
+    for (let i=0;i<arrayCat.length;i++){
+        categorias +=  crearCheckbox(arrayCat[i],i);
     }
     return categorias
 }
 
-function crearCheckbox(cat){
+function crearCheckbox(cat,i){
     return `
     <div class="form-check form-check-inline m-0">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="${cat}"  />
-        <label class="form-check-label" for="inlineCheckbox1">${cat}</label>
+        <input class="form-check-input valoresCheck" type="checkbox" name="categorias" id="categoria${i}" value="${cat}"   />
+        <label class="form-check-label" for="categoria${i}">${cat}</label>
     </div>`
 }
 
@@ -52,15 +60,33 @@ function eliminarDuplicados (array){
     return unicos
 }
 
+let categoriaSelect = []
+
+//tarjetas
 //Aca se cargan las tarjetas de los eventos
 const contTarjeta = document.querySelector("#containerCard");
-let tarjetasGeneradas = generarTarjetas(data.events)
+let tarjetasGeneradas = generarTarjetas(data.events,categoriaSelect);
 contTarjeta.innerHTML = tarjetasGeneradas;
 
+//Checkbox
 // Aca se cargan los checkbox de cada categoria
 const categorias = document.getElementById('category')
-//voy a tratar de obtener un array de categorias
-let categoriasFiltradas = eliminarDuplicados(data.events.map((cat)=> cat.category))
+//voy obtener un array de categorias
+let categoriasFiltradas = eliminarDuplicados(data.events.map((cat)=> cat.category));
 let catGeneradas = cargarCategorias(categoriasFiltradas);
-console.log(catGeneradas);
-categorias.innerHTML = catGeneradas
+categorias.innerHTML = catGeneradas;
+
+//Implementaré un método de filtrado por checkbox
+let checks = document.querySelectorAll('.valoresCheck');
+//escucho los eventos de cada uno de los checkbox
+checks.forEach((e)=>{
+    e.addEventListener('change', ()=>{
+        if (e.checked){//agrego elemento a la lista o lo saco
+            categoriaSelect.push(e.value);
+        }else{
+            categoriaSelect.splice(categoriaSelect.indexOf(e.value),1);
+        }
+        contTarjeta.innerHTML = generarTarjetas(data.events,categoriaSelect);
+    });
+});
+
