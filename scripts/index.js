@@ -8,7 +8,7 @@ function generarTarjetas(arrayEvents){
 }
 
 function crearTarjeta(event) {
-        return `
+    return `
         <div class="card d-flex justify-content-center" style="width: 18rem;">
             <img src="${event.image}" class="card-img-top" alt="Images">
             <div class="card-body">
@@ -41,20 +41,28 @@ function crearCheckbox(cat,i){
     </div>`
 }
 function filtrarCheckbox(events,checkbox){
-    let tarjetas = "";
+    let eventfiltrados = [];
     if(checkbox.length > 0){
         checkbox.forEach((categoria)=>{
             events.forEach((event)=>{
                 if(event.category==categoria){
-                    tarjetas += crearTarjeta(event);
+                    eventfiltrados.push(event);
                 }
-            })
-            
-        })
+            });        
+        });
     }else{
-        tarjetas = generarTarjetas(events);
+        eventfiltrados = events;
     }
-    return tarjetas;
+    return eventfiltrados;
+}
+
+function buscar(){
+    let eventosEncontrados = [];
+    let eventCheckbox = filtrarCheckbox(data.events,categoriaSelect);
+    eventosEncontrados = eventCheckbox.filter((event)=>{
+        return eventosFiltrados = (event.name.toLowerCase().includes(buscador.value.toLowerCase()));
+    });
+    return eventosEncontrados;
 }
 
 //quiero sacar los duplicados del array
@@ -75,7 +83,7 @@ let categoriaSelect = []
 const contTarjeta = document.querySelector("#containerCard");
 let tarjetasGeneradas = generarTarjetas(data.events);
 contTarjeta.innerHTML = tarjetasGeneradas;
-console.log(data.events);
+
 //Checkbox
 // Aca se cargan los checkbox de cada categoria
 const categorias = document.getElementById('category')
@@ -94,17 +102,14 @@ checks.forEach((e)=>{
         }else{
             categoriaSelect.splice(categoriaSelect.indexOf(e.value),1);
         }
-        contTarjeta.innerHTML = filtrarCheckbox(data.events,categoriaSelect);
+        let eventosEncontrados = buscar();
+        contTarjeta.innerHTML = generarTarjetas(eventosEncontrados);
     });
 });
 
 //Buscador
 let buscador = document.getElementById('search');
 buscador.addEventListener('keyup',()=> { 
-    let eventosEncontrados = [];
-    eventosEncontrados = data.events.filter((event)=>{
-        return (event.name.toLowerCase().includes(buscador.value.toLowerCase()))
-    });
+    let eventosEncontrados = buscar();
     contTarjeta.innerHTML = generarTarjetas(eventosEncontrados);
-    
 });
