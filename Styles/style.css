@@ -117,8 +117,17 @@ footer a {
     height: 180px;
     object-fit: cover;
 }
+.card-event-detail img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
 .card-text{
-    height: 72px;
+    height: 74px;
+}
+
+.card-title-detail{
+    font-size: 30px;
 }
 
 .card-body {
@@ -178,4 +187,16 @@ td {
     .stats {
         min-height: 60vh;
     }
+}
+
+#detail{
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+.imgDetail{
+    height: 480px;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    padding-bottom: 1px;
 }

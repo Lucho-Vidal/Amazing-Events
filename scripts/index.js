@@ -9,20 +9,23 @@ function generarTarjetas(arrayEvents){
 
 function crearTarjeta(event) {
     return `
-        <div class="card d-flex justify-content-center" style="width: 18rem;">
+        <div id="event" class="card d-flex justify-content-center" style="width: 18rem;">
             <img src="${event.image}" class="card-img-top" alt="Images">
             <div class="card-body">
                 <h5 class="card-title">${event.name}</h5>
                 <P>Date: ${event.date}</p>
                 <div class="card-bottom d-flex flex-column justify-content-between">
                     <p class="card-text">${event.description}</p>
-                    <p>Category: ${event.category}</p>
                     <p>Price: $ ${event.price}</P>
-                    <a href="#" class="btn btn-primary">See more</a>
+                    <input type="button"  onclick="seeDetail('${event._id}')" value="See more" class="btn btn-primary">
                 </div>
                 
             </div>
         </div>`
+}
+
+function seeDetail(id) {
+    window.location.href = `./event.html?id=${id}`
 }
 //Categorias
 function cargarCategorias(arrayCat){
@@ -113,3 +116,5 @@ buscador.addEventListener('keyup',()=> {
     let eventosEncontrados = buscar();
     contTarjeta.innerHTML = generarTarjetas(eventosEncontrados);
 });
+
+let 
